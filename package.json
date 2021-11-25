@@ -1,0 +1,22 @@
+{
+  "name": "underline",
+  "version": "1.0.0",
+  "description": "based utility package",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alshei/underline.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alshei/underline/issues"
+  },
+  "homepage": "https://github.com/alshei/underline#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
