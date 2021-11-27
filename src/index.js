@@ -12,13 +12,13 @@ const _ = {};
     _.map = () => {}
     _.filter = () => {}
     _.invert = () => {}
-     _.zip = () => {}
+    _.zip = () => {}
     _.fill = () => {}
     _.find = () => {}
     _.shuffle = () => {}
-     _.flatten = () => {}
-
+    _.flatten = () => {}
     _.reverse = () => {}
+    
     _.flattenDeep = () => {}
     _.flattenDepth = () => {}
 
@@ -126,6 +126,13 @@ _.flatten = (arr) => {
   return flattenedArr;
 };
 
-_.reverse = () => {};
+_.reverse = (arr) => {
+  for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+    [arr[i], arr[arr.length - 1 - i]] = [arr[arr.length - 1 - i], arr[i]];
+  }
+  return arr;
+};
+
+_.flattenDeep = () => {};
 
 module.exports = _;

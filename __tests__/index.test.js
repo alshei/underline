@@ -194,7 +194,17 @@ describe("#flatten", () => {
 });
 
 describe("#reverse", () => {
+  test("returns an array", () => {
+    expect(_.reverse([])).toEqual([]);
+  });
+  test("returns array with reversed indices", () => {
+    expect(_.reverse([1, 2, 3, 4])).toEqual([4, 3, 2, 1]);
+    expect(_.reverse([4, 7, 2, 9, 12])).toEqual([12, 9, 2, 7, 4]);
+  });
+});
+
+describe("#flattenDeep", () => {
   test("", () => {
-    expect(_.reverse()).toEqual();
+    expect(_.flattenDeep()).toEqual();
   });
 });
