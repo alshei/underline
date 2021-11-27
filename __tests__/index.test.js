@@ -204,7 +204,10 @@ describe("#reverse", () => {
 });
 
 describe("#flattenDeep", () => {
-  test("", () => {
-    expect(_.flattenDeep()).toEqual();
+  test("returns a new array", () => {
+    expect(_.flattenDeep([])).toEqual([]);
+  });
+  test("returns a new array flattened completely", () => {
+    expect(_.flattenDeep([1, [2, [3, [4]], 5]])).toEqual([1, 2, 3, 4, 5]);
   });
 });

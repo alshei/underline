@@ -133,6 +133,16 @@ _.reverse = (arr) => {
   return arr;
 };
 
-_.flattenDeep = () => {};
+_.flattenDeep = (arr) => {
+  let flattenedArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].constructor === Array) {
+      flattenedArr.push(..._.flattenDeep(arr[i]));
+    } else {
+      flattenedArr.push(arr[i]);
+    }
+  }
+  return flattenedArr;
+};
 
 module.exports = _;
