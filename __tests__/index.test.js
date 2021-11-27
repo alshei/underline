@@ -171,7 +171,7 @@ describe("#find", () => {
 });
 
 describe("#shuffle", () => {
-  test("returns a new array", () => {
+  test("returns an array", () => {
     expect(_.shuffle([])).toEqual([]);
   });
   test("returns a shuffled array", () => {
@@ -181,5 +181,20 @@ describe("#shuffle", () => {
     });
     expect(_.shuffle([1, 2, 3, 4])).toEqual([2, 3, 4, 1]);
     randomSpy.mockRestore();
+  });
+});
+
+describe("#flatten", () => {
+  test("returns a new array", () => {
+    expect(_.flatten([])).toEqual([]);
+  });
+  test("returns a new array flattened a single level", () => {
+    expect(_.flatten([1, [2, [3, [4]], 5]])).toEqual([1, 2, [3, [4]], 5]);
+  });
+});
+
+describe("#reverse", () => {
+  test("", () => {
+    expect(_.reverse()).toEqual();
   });
 });

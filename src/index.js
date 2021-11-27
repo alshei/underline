@@ -16,6 +16,11 @@ const _ = {};
     _.fill = () => {}
     _.find = () => {}
     _.shuffle = () => {}
+     _.flatten = () => {}
+
+    _.reverse = () => {}
+    _.flattenDeep = () => {}
+    _.flattenDepth = () => {}
 
 */
 
@@ -106,5 +111,21 @@ _.shuffle = (arr) => {
   }
   return arr;
 };
+
+_.flatten = (arr) => {
+  let flattenedArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].constructor !== Array) {
+      flattenedArr.push(arr[i]);
+    } else {
+      for (let j = 0; j < arr[i].length; j++) {
+        flattenedArr.push(arr[i][j]);
+      }
+    }
+  }
+  return flattenedArr;
+};
+
+_.reverse = () => {};
 
 module.exports = _;
