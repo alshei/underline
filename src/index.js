@@ -15,8 +15,6 @@ const _ = {};
      _.zip = () => {}
     _.fill = () => {}
     _.find = () => {}
-
-
     _.shuffle = () => {}
 
 */
@@ -99,6 +97,14 @@ _.find = (array, callback = (value) => {}) => {
   for (let i = 0; i < array.length; i++) {
     if (callback(array[i])) return array[i];
   }
+};
+
+_.shuffle = (arr) => {
+  for (let i = arr.length - 1; i > 0; i--) {
+    let rand = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[rand]] = [arr[rand], arr[i]];
+  }
+  return arr;
 };
 
 module.exports = _;

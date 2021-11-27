@@ -169,3 +169,17 @@ describe("#find", () => {
     expect(callbackFunc).toBeCalledTimes(2);
   });
 });
+
+describe("#shuffle", () => {
+  test("returns a new array", () => {
+    expect(_.shuffle([])).toEqual([]);
+  });
+  test("returns a shuffled array", () => {
+    const randomSpy = jest.spyOn(Math, "random");
+    randomSpy.mockImplementation(() => {
+      return 0;
+    });
+    expect(_.shuffle([1, 2, 3, 4])).toEqual([2, 3, 4, 1]);
+    randomSpy.mockRestore();
+  });
+});
