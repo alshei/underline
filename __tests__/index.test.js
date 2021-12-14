@@ -211,3 +211,19 @@ describe("#flattenDeep", () => {
     expect(_.flattenDeep([1, [2, [3, [4]], 5]])).toEqual([1, 2, 3, 4, 5]);
   });
 });
+
+describe("#flattenDepth", () => {
+  test("returns a new array", () => {
+    expect(_.flattenDepth([])).toEqual([]);
+  });
+  test("returns a new array flattened by n levels", () => {
+    expect(_.flattenDepth([1, [2, [3, [4]], 5]], 1)).toEqual([
+      1,
+      2,
+      [3, [4]],
+      5,
+    ]);
+    expect(_.flattenDepth([1, [2, [3, [4]], 5]], 2)).toEqual([1, 2, 3, [4], 5]);
+    expect(_.flattenDepth([1, [2, [3, [4]], 5]], 3)).toEqual([1, 2, 3, 4, 5]);
+  });
+});

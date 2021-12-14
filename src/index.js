@@ -18,8 +18,8 @@ const _ = {};
     _.shuffle = () => {}
     _.flatten = () => {}
     _.reverse = () => {}
-    
     _.flattenDeep = () => {}
+
     _.flattenDepth = () => {}
 
 */
@@ -144,5 +144,40 @@ _.flattenDeep = (arr) => {
   }
   return flattenedArr;
 };
+
+// not recursive but... it works lmao
+_.flattenDepth = (arr, depth) => {
+  const length = Array.isArray(arr) ? arr.length : 0;
+  if (!length) return [];
+  depth = depth === undefined ? 1 : +depth;
+  let output = [...arr];
+
+  flattenOnce = (arr) => {
+    let flattenedArr = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].constructor !== Array) {
+        flattenedArr.push(arr[i]);
+      } else {
+        for (let j = 0; j < arr[i].length; j++) {
+          flattenedArr.push(arr[i][j]);
+        }
+      }
+    }
+    return flattenedArr;
+  };
+
+  do {
+    depth--;
+    output = flattenOnce(output);
+  } while (depth > 0);
+  return output;
+};
+
+// gets the most nested array (arguments: arr, depth)
+// let temp = [...arr];
+//   for (let i = 0; i < temp.length; i++) {
+//     if (Array.isArray(temp[i])) temp = [..._.flattenDepth(temp[i], depth - 1)];
+//   }
+//   return temp;
 
 module.exports = _;
